@@ -35,8 +35,6 @@ public class Screen extends JPanel {
 	
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		if(Calculator.paintScreen)
-			g.drawString(getString(), 20, 20);
 	}
 	
 }
