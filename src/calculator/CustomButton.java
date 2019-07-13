@@ -10,7 +10,6 @@ public class CustomButton extends JButton {
 
 	private static final long serialVersionUID = -8201592288999968234L;
 	private BUTTON_TYPE buttonType;
-	private Calculator calculator;
 	
 	public enum BUTTON_TYPE {
 		plus,
@@ -25,7 +24,6 @@ public class CustomButton extends JButton {
 	
 	public CustomButton(BUTTON_TYPE buttonType, Calculator calculator) {
 		this.buttonType = buttonType;
-		this.calculator = calculator;
 		setText();
 		this.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

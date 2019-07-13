@@ -18,7 +18,7 @@ public class Calculator extends JPanel {
 	private static final long serialVersionUID = -1340732273401597053L;
 	private Screen screen;
 	private NumberPanel numberPanel;
-	//private Hex hex;
+	private Hex hex;
 	private String hexString;
 	private BUTTON_TYPE actionType;
 	private int oldNumber;
@@ -36,6 +36,10 @@ public class Calculator extends JPanel {
 		this.add(numberPanel, BorderLayout.CENTER);
 	}
 
+	public void calc() {
+		
+	}
+	
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 	}
