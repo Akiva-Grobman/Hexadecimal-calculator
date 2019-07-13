@@ -16,6 +16,10 @@ public class CustomButton extends JButton {
 		plus,
 		minus,
 		multiply,
+		divide,
+		power,
+		root,
+		equals,
 		clear
 	}
 	
@@ -24,12 +28,9 @@ public class CustomButton extends JButton {
 		this.calculator = calculator;
 		setText();
 		this.addActionListener(new ActionListener() {
-			
 			public void actionPerformed(ActionEvent e) {
-				if(buttonType == BUTTON_TYPE.clear) {
-					calculator.getNumbersList().clear();
-					calculator.repaint();
-				}
+				calculator.setAction(buttonType);
+				calculator.repaint();
 			}
 		});
 	}
@@ -39,15 +40,35 @@ public class CustomButton extends JButton {
 		switch(this.buttonType) {
 		case plus: {
 			text = " + ";
+			break;
 		}
 		case minus: {
 			text = " - ";
+			break;
 		}
 		case multiply: {
 			text = " X ";
+			break;
 		}
 		case clear: {
 			text = " AC ";
+			break;
+		}
+		case divide: {
+			text = " / ";
+			break;
+		}
+		case power: {
+			text = " ^ ";
+			break;
+		}
+		case root: {
+			text = " √ ";
+			break;
+		}
+		case equals: {
+			text = " = ";
+			break;
 		}
 	}
 	this.setText(text);

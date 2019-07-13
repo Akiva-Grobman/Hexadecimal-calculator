@@ -20,13 +20,15 @@ public class NumberPanel extends JPanel{
 		setBorder(BorderFactory.createLineBorder(Color.red));
 		this.setLayout(new GridLayout(6,6));
 		for(int i = 0; i < 36; i++) {
-			System.out.println(i + " " + i % 6);
 			if(i >= 6 && i < 30 && (i % 6 != 0 && (i - 5) % 6 != 0)) {
-				tempNumber = new NumberButton(count, Color.cyan, calculator);
+				if(count <= 9) {
+					tempNumber = new NumberButton(count, Color.cyan, calculator);
+				} else {
+					tempNumber = new NumberButton(count + ('A' - 10), Color.cyan, calculator);
+				}
 				this.add(tempNumber);
 				count++;
 			} else if (i < 34){
-				System.out.println(i);
 				this.add(new JLabel());
 			} else {
 				this.add(clearButton);

@@ -15,18 +15,19 @@ public class NumberButton extends JButton{
 	
 	public NumberButton(int value, Color color, Calculator calculator) {
 		this.setBackground(color);
+		this.value = value;
 		setBorder(BorderFactory.createLineBorder(Color.red));
 		if(value > 9) {
-			this.setText((char)((value + ('A' - 10))) + "");
+			this.setText((char)(value) + "");
 		} else {
 			this.setText(value + "");
 		}
 		this.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				calculator.addToNumbersList(value);
+				calculator.setHex(calculator.getHex() + value);
+				System.out.println(calculator.getHex());
 			}
 		});
-		this.value = value;
 	}
 
 	public int getValue() {

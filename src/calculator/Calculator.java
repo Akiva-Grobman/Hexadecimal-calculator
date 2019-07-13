@@ -10,16 +10,20 @@ import java.util.List;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
+import calculator.CustomButton.BUTTON_TYPE;
+import javafx.scene.chart.BubbleChart;
+
 public class Calculator extends JPanel {
 
 	private static final long serialVersionUID = -1340732273401597053L;
 	private Screen screen;
 	private NumberPanel numberPanel;
-	private List <Integer> numbersList;
-	public static boolean paintScreen = false;
+	//private Hex hex;
+	private String hexString;
+	private BUTTON_TYPE actionType;
+	private int oldNumber;
 	
 	public Calculator(int width, int height) {
-		numbersList = new ArrayList<Integer>();
 		screen = new Screen(width - (width / 100 * 20), height - (height / 100 * 95), this);
 		numberPanel = new NumberPanel(this);
 		this.setBackground(Color.cyan);
@@ -32,20 +36,33 @@ public class Calculator extends JPanel {
 		this.add(numberPanel, BorderLayout.CENTER);
 	}
 
-	public List <Integer> getNumbersList() {
-		return this.numbersList;
-	}
-
-	public void addToNumbersList(int number) {
-		this.numbersList.add(number);
-		this.repaint();
-	}
-	
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		if(paintScreen) {
-			//numberPanel.repaint();
-		}
-		paintScreen = true;
 	}
+
+	public String getHex() {
+		return this.hexString;
+	}
+
+	public void setHex(String hex) {
+		this.hexString = hex;
+	}
+
+	public int getOldNumber() {
+		return oldNumber;
+	}
+
+	public void setOldNumber(int oldNumber) {
+		this.oldNumber = oldNumber;
+	}
+
+	public BUTTON_TYPE getAction() {
+		return this.actionType;
+	}
+	
+	public void setAction(BUTTON_TYPE buttonType) {
+		this.actionType = buttonType;
+	}
+	
 }
+
