@@ -44,13 +44,17 @@ public class Hex {
 		return null;
 	}
 	
+	public Hex power(Hex hex) {
+		return null;
+	}
+	
+	public Hex root(Hex hex) {
+		return null;
+	}
+	
 	public String toString() {
 		return "";
 	}
-	
-	
-	
-	
 	
 	
 	

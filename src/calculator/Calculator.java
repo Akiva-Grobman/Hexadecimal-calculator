@@ -32,25 +32,65 @@ public class Calculator extends JPanel {
 
 	public void setHexs() {
 		setHex(numberString);
-		if(actionType != null) {
-			
+		if(hex1 == null) {
+			hex1 = new Hex("0");
+		}
+		if(hex2 != null) {
+			calculate();
 		}
 	}
 	
 	private void calculate() {
 		switch(actionType) {
-		
+			case clear: {
+				// TODO add clear function
+				break;
+			}
+			case divide: {
+				hex1 = hex1.divide(hex2);
+				break;
+			}
+			case equals: {
+				//hex1.equals(hex2):
+				break;
+			}
+			case minus: {
+				hex1 = hex1.substract(hex2);
+				break;
+			}
+			case multiply: {
+				hex1 = hex1.multiply(hex2);
+				break;
+			}
+			case plus: {
+				hex1 = hex1.add(hex2);
+				break;
+			}
+			case power: {
+				hex1 = hex1.power(hex2);
+				break;
+			}
+			case root: {
+				hex1 = hex1.root(hex2);
+				break;
+			}
 		}
+		
 	}
 	
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
+		screen.repaint();
 	}
 
 	public String getNumberString() {
 		return numberString;
 	}
 
+	public Hex getHex() {
+		return this.hex1;
+	}
+	
 	public void setNumberString(String numberString) {
 		this.numberString = numberString;
 	}

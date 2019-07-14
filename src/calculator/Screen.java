@@ -12,7 +12,6 @@ public class Screen extends JPanel {
 	private static final long serialVersionUID = 2673592926732783675L;
 	private Calculator calculator;
 	
-	
 	public Screen(int width, int height, Calculator calculator) {
 		this.calculator = calculator;
 		this.setBackground(Color.white);
@@ -21,8 +20,12 @@ public class Screen extends JPanel {
 		this.setMaximumSize(new Dimension(width, height));
 	}
 	
-	public void paintComponent(Graphics g) {
+	public void paintComponent(Graphics g) throws NullPointerException {
 		super.paintComponent(g);
+		if(calculator.getHex() == null) {
+			throw new NullPointerException(" :)");
+		}
+		g.drawString(calculator.getHex().toString(), this.getWidth() / 100 * 20, this.getHeight() / 100 * 50);
 	}
 	
 }

@@ -28,6 +28,7 @@ public class CustomButton extends JButton {
 		this.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				calculator.setAction(buttonType);
+				calculator.setHexs();
 				calculator.repaint();
 			}
 		});
