@@ -22,10 +22,7 @@ public class Screen extends JPanel {
 	
 	public void paintComponent(Graphics g) throws NullPointerException {
 		super.paintComponent(g);
-		if(calculator.getHex() == null) {
-			throw new NullPointerException(" :)");
-		}
-		g.drawString(calculator.getHex().toString(), this.getWidth() / 100 * 20, this.getHeight() / 100 * 50);
+		//g.drawString(calculator.getHex().toString(), this.getWidth() / 100 * 20, this.getHeight() / 100 * 50);
 	}
 	
 }
