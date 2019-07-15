@@ -2,7 +2,6 @@ package calculator;
 
 public class Hex {
 
-	private  String temp;
 	private int hex; 
 	
 	public Hex (String hex)
@@ -19,13 +18,10 @@ public class Hex {
 			    x = x - '0';
 		
 			this.hex = x * (int)Math.pow(16, a);
+
 			a++;
-			
 			z++;
 		}
-
-		
-		
 	}
 	
 	public Hex multiply(Hex hex) {
@@ -33,12 +29,6 @@ public class Hex {
 		
 		return temp;
 	}
-	
-	public Hex(Hex hex)
-	{
-		this.hex = hex.hex;
-	}
-	
 	
  	public Hex(int hex) {
  		this.hex = hex;
@@ -65,19 +55,13 @@ public class Hex {
 		return temp;
 	}
 	
-<<<<<<< HEAD
 	public Hex power(Hex hex) {
 		return null;
-=======
-	public String toString( String temp) {
-		int x;
-		return this.temp = temp;
-				  
-				
-				
-				
->>>>>>> 63aec7d53e007f6b12448d2571346ba67ba9186f
 	}
+	public String toString( String temp) {
+		return this.temp = temp;
+	}
+			
 	
 	public Hex root(Hex hex) {
 		return null;
