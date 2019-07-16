@@ -21,7 +21,7 @@ public class Calculator extends JPanel {
 		screen = new Screen(width - (width / 100 * 20), height - (height / 100 * 95), this);
 		numberPanel = new NumberPanel(this);
 		this.setBackground(Color.cyan);
-		setBorder(BorderFactory.createLineBorder(Color.red));
+		setBorder(BorderFactory.createLineBorder(Color.black));
 		this.setLayout(new BorderLayout());
 		this.setPreferredSize(new Dimension(width, height));
 		this.setMinimumSize(new Dimension(width, height));

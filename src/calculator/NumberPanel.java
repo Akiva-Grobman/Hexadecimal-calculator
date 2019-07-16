@@ -18,7 +18,7 @@ public class NumberPanel extends JPanel{
 	public NumberPanel(Calculator calculator) {
 		this.calculator = calculator;
 		tempButton = new CustomButton(BUTTON_TYPE.clear, calculator);
-		setBorder(BorderFactory.createLineBorder(Color.red));
+		setBorder(BorderFactory.createLineBorder(Color.black));
 		this.setLayout(new GridLayout(6,6));
 		buttonSetter();
 	}

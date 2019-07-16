@@ -18,7 +18,7 @@ public class NumberButton extends JButton{
 		// sets the graphics
 		this.setBackground(color);
 		this.value = value;
-		setBorder(BorderFactory.createLineBorder(Color.red));
+		setBorder(BorderFactory.createLineBorder(Color.black));
 		// sets the button value(0-9,A-F)
 		if(value > 9) {
 			this.setText((char)(value) + "");

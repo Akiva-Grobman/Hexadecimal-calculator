@@ -27,7 +27,10 @@ public class Screen extends JPanel {
 		// TODO handle errors (preferably not here)
 		try {
 			String resolute = calculator.getHex().toString();
-			g.drawString(resolute, this.getWidth() - (resolute.length() * 17), 70);
-		} catch(NullPointerException e) {}
+			g.drawString(resolute, this.getWidth() - (resolute.length() * 20), 70);
+			System.out.println(resolute);
+		} catch(NullPointerException e) {
+			System.out.println("error");
+		}
 	}
 }
