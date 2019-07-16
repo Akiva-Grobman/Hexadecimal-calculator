@@ -43,7 +43,8 @@ public class Calculator extends JPanel {
 	private void calculate() {
 		switch(actionType) {
 			case clear: {
-				// TODO add clear function
+				hex1 = null;
+				hex2 = null;
 				break;
 			}
 			case divide: {
@@ -51,7 +52,7 @@ public class Calculator extends JPanel {
 				break;
 			}
 			case equals: {
-				//hex1.equals(hex2):
+				//hex1.equals(hex2): TODO add this function
 				break;
 			}
 			case minus: {
@@ -96,11 +97,13 @@ public class Calculator extends JPanel {
 	}
 
 	public void setHex(String hex) {
-		if(hex1 == null) {
+		if(hex1 == null || (hex1 != null && hex2 != null)) {
 			hex1 = new Hex(hex);
+			hex2 = null;
 		} else {
 			hex2 = new Hex(hex);
 		}
+		this.numberString = "";
 	}
 
 	public void setAction(BUTTON_TYPE buttonType) {

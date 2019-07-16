@@ -28,7 +28,12 @@ public class NumberButton extends JButton{
 		// adds the button listener
 		this.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				calculator.setNumberString(calculator.getNumberString() + value);
+				if(value <= 9) {
+					calculator.setNumberString(calculator.getNumberString() + value);
+				} else {
+					calculator.setNumberString(calculator.getNumberString() + ((char)value));
+				}
+				
 			}
 		});
 	}

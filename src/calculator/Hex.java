@@ -3,9 +3,11 @@ package calculator;
 public class Hex {
 
 	private int hex; 
+	private String Shex;
 	
 	public Hex (String hex)
 	{
+		Shex = hex;
 		int s = hex.length(), z = 1, x, a = 0;
 		
 		 for (int i = 0; i < hex.length(); i++) {
@@ -58,17 +60,13 @@ public class Hex {
 	public Hex power(Hex hex) {
 		return null;
 	}
-	public String toString( String temp) {
-		return this.temp = temp;
-	}
-			
 	
 	public Hex root(Hex hex) {
 		return null;
 	}
 	
 	public String toString() {
-		return "";
+		return Shex;
 	}
 	
 	

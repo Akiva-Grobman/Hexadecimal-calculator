@@ -20,9 +20,11 @@ public class Screen extends JPanel {
 		this.setMaximumSize(new Dimension(width, height));
 	}
 	
-	public void paintComponent(Graphics g) throws NullPointerException {
+	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		//g.drawString(calculator.getHex().toString(), this.getWidth() / 100 * 20, this.getHeight() / 100 * 50);
+		// TODO handle errors (preferably not here)
+		try {
+			g.drawString(calculator.getHex().toString(), this.getWidth() / 100 * 20, this.getHeight() / 100 * 50);
+		} catch(NullPointerException e) {}
 	}
-	
 }
