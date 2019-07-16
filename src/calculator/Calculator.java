@@ -31,7 +31,7 @@ public class Calculator extends JPanel {
 	}
 
 	public void setHexs() {
-		setHex(numberString);
+		setHex();
 		if(hex1 == null) {
 			hex1 = new Hex("0");
 		}
@@ -96,12 +96,11 @@ public class Calculator extends JPanel {
 		this.numberString = numberString;
 	}
 
-	public void setHex(String hex) {
-		if(hex1 == null || (hex1 != null && hex2 != null)) {
-			hex1 = new Hex(hex);
-			hex2 = null;
+	public void setHex() {
+		if(hex1 == null) {
+			hex1 = new Hex(this.numberString);
 		} else {
-			hex2 = new Hex(hex);
+			hex2 = new Hex(this.numberString);
 		}
 		this.numberString = "";
 	}

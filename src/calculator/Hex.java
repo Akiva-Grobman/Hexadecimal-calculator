@@ -3,26 +3,17 @@ package calculator;
 public class Hex {
 
 	private int hex; 
-	private String Shex;
 	
 	public Hex (String hex)
 	{
-		Shex = hex;
 		int s = hex.length(), z = 1, x, a = 0;
+		this.hex = 0;
 		
-		 for (int i = 0; i < hex.length(); i++) {
-
-			x = hex.charAt(hex.length()-z);
-		
-			if(x >= 'A' && x <= 'F')
-				x = x - 'A' + 10;
-			if(x >= '0' && x >= '9' )
-			    x = x - '0';
-		
-			this.hex = x * (int)Math.pow(16, a);
-
-			a++;
-			z++;
+		for (int i = hex.length() - 1; i >= 0; i--) {
+			if (hex.charAt(i) >= '0' && hex.charAt(i) <= '9')
+				this.hex = (int) (this.hex + (hex.charAt(i) - '0') * Math.pow(16, hex.length() - i - 1));
+			else
+				this.hex = (int) (this.hex + (hex.charAt(i) - 'A') * Math.pow(16, hex.length() - i - 1));
 		}
 	}
 	
@@ -66,9 +57,6 @@ public class Hex {
 	}
 	
 	public String toString() {
-		return Shex;
+		return "xcvbjkjuy";
 	}
-	
-	
-	
 }

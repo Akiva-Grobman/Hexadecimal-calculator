@@ -2,9 +2,9 @@ package calculator;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Graphics;
 
-import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
 public class Screen extends JPanel {
@@ -22,9 +22,12 @@ public class Screen extends JPanel {
 	
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
+		Font font = new Font("arial", 2, 35);
+		g.setFont(font);
 		// TODO handle errors (preferably not here)
 		try {
-			g.drawString(calculator.getHex().toString(), this.getWidth() / 100 * 20, this.getHeight() / 100 * 50);
+			String resolute = calculator.getHex().toString();
+			g.drawString(resolute, this.getWidth() - (resolute.length() * 17), 70);
 		} catch(NullPointerException e) {}
 	}
 }
