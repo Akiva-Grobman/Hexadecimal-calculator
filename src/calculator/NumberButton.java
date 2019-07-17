@@ -8,11 +8,14 @@ import java.awt.event.ActionListener;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 
+import calculator.CustomButton.BUTTON_TYPE;
+
 public class NumberButton extends JButton{
 
 	private static final long serialVersionUID = -5825753833125096648L;
 	private int value;
 	private String hex;
+	private BUTTON_TYPE buttonType = BUTTON_TYPE.number;
 	
 	public NumberButton(int value, Color color, Calculator calculator) {
 		// sets the graphics
@@ -33,7 +36,9 @@ public class NumberButton extends JButton{
 				} else {
 					calculator.setNumberString(calculator.getNumberString() + ((char)value));
 				}
-				
+				calculator.setPreviousButton(BUTTON_TYPE.number);
+				calculator.setPaintResolute(false);
+				calculator.repaint();
 			}
 		});
 	}
@@ -52,5 +57,9 @@ public class NumberButton extends JButton{
 
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
+	}
+
+	public BUTTON_TYPE getButtonType() {
+		return buttonType;
 	}
 }

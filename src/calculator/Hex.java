@@ -4,48 +4,50 @@ public class Hex {
 
 	private int hex; 
 	
-	public Hex (String hex)
-	{
-		int s = hex.length(), z = 1, x, a = 0;
+	public Hex (String hex) {
 		this.hex = 0;
-		// yechiel this was your only job and you f#@ked it up
 		for (int i = hex.length() - 1; i >= 0; i--) {
 			if (hex.charAt(i) >= '0' && hex.charAt(i) <= '9')
 				this.hex = (int) (this.hex + (hex.charAt(i) - '0') * Math.pow(16, hex.length() - i - 1));
-			else
-				this.hex = (int) (this.hex + (hex.charAt(i) - 'A') * Math.pow(16, hex.length() - i - 1));
+			else if(hex.charAt(i) >= 'A' && hex.charAt(i) <= 'F')
+				this.hex = (int) (this.hex + (hex.charAt(i) - 'A' + 10) * Math.pow(16, hex.length() - i - 1));
 		}
-	}
-	
-	public Hex multiply(Hex hex) {
-		Hex temp = new Hex(this.hex * hex.hex);
-		
-		return temp;
+		if(hex.length() > 0 && hex.charAt(0) == '-') {
+			this.hex *= -1;
+			System.out.println(this.hex + " k");
+		}
 	}
 	
  	public Hex(int hex) {
  		this.hex = hex;
 	}
 
-	public Hex divide(Hex hex2) {
+ 	public Hex multiply(Hex hex) {
+		Hex temp = new Hex(this.hex * hex.hex);
+		return temp;
+	}
+ 	
+	public Hex divide(Hex hex) {
 		
-		Hex temp = new Hex (Math.floorDiv(this.hex, hex));
+		Hex temp = new Hex(this.hex / hex.hex);
 		
+		return temp;
+		
+	}
+	
+	public Hex add(Hex hex) {
+		Hex	temp = new Hex (this.hex + hex.hex); 
 		return temp;
 	}
 	
-	public Hex add(Hex hex2) {
-		Hex	temp = new Hex (this.hex + hex); 
-		return temp;
-	}
-	
-	public Hex substract(Hex hex2) {
-		Hex	temp = new Hex (this.hex - hex); 
+	public Hex substract(Hex hex) {
+		Hex	temp = new Hex (this.hex - hex.hex); 
 		return temp;
 	}
 	
 	public Hex power(Hex hex) {
-		return null;
+		Hex temp = new Hex((int) Math.pow(this.hex, hex.hex));
+		return temp;
 	}
 	
 	public Hex root(Hex hex) {
@@ -55,6 +57,9 @@ public class Hex {
 	private String converter() {
 		String hex = "";
 		int temp1, temp2 = this.hex;
+		if (this.hex == 0) {
+			return "0";
+		}
 		if(this.hex < 0) {
 			temp2 = -this.hex;
 		}
@@ -95,7 +100,6 @@ public class Hex {
 		if(this.hex < 0) {
 			hex = '-' + hex;
 		}
-		System.out.println(this.hex + " hello " + hex);
 		return hex;
 	}
 	

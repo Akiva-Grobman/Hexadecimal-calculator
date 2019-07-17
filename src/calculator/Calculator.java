@@ -13,9 +13,10 @@ public class Calculator extends JPanel {
 	private static final long serialVersionUID = -1340732273401597053L;
 	private Screen screen;
 	private NumberPanel numberPanel;
-	private Hex hex1 = null, hex2 = null;
+	private Hex hex1, hex2;
 	private String numberString = "";
-	private BUTTON_TYPE actionType = null;
+	private BUTTON_TYPE actionType = null, previousButton = null;
+	private boolean hex1IsNotNull = false, paintResolute = false;
 	
 	public Calculator(int width, int height) {
 		screen = new Screen(width - (width / 100 * 20), height - (height / 100 * 95), this);
@@ -32,9 +33,6 @@ public class Calculator extends JPanel {
 
 	public void setHexs() {
 		setHex();
-		if(hex1 == null) {
-			hex1 = new Hex("0");
-		}
 		if(hex2 != null) {
 			calculate();
 		}
@@ -43,40 +41,55 @@ public class Calculator extends JPanel {
 	private void calculate() {
 		switch(actionType) {
 			case clear: {
-				hex1 = null;
-				hex2 = null;
+				hex1 = new Hex("");
+				hex2 = new Hex("");
+				this.repaint();
 				break;
 			}
 			case divide: {
-				hex1 = hex1.divide(hex2);
+				try {
+					hex1 = hex1.divide(hex2);
+				} catch(ArithmeticException e) {
+					hex1 = null;
+				}
+				hex2 = null;
 				break;
 			}
 			case equals: {
-				//hex1.equals(hex2): TODO add this function
+				this.repaint();
 				break;
 			}
 			case minus: {
+				if(this.previousButton != BUTTON_TYPE.number && this.previousButton != BUTTON_TYPE.minus) {
+					this.numberString = "-" + this.numberString;
+				}
 				hex1 = hex1.substract(hex2);
+				hex2 = null;
 				break;
 			}
 			case multiply: {
 				hex1 = hex1.multiply(hex2);
+				hex2 = null;
 				break;
 			}
 			case plus: {
 				hex1 = hex1.add(hex2);
+				hex2 = null;
 				break;
 			}
 			case power: {
 				hex1 = hex1.power(hex2);
+				hex2 = null;
 				break;
 			}
 			case root: {
 				hex1 = hex1.root(hex2);
+				hex2 = null;
 				break;
 			}
+		case number:
+			break;
 		}
-		
 	}
 	
 	public void paintComponent(Graphics g) {
@@ -89,7 +102,13 @@ public class Calculator extends JPanel {
 	}
 
 	public Hex getHex() {
-		return this.hex1;
+		Hex temp;
+		if(paintResolute) {
+			temp = this.hex1;
+		} else {
+			temp = new Hex(numberString);
+		}
+		return temp;
 	}
 	
 	public void setNumberString(String numberString) {
@@ -99,6 +118,7 @@ public class Calculator extends JPanel {
 	public void setHex() {
 		if(hex1 == null) {
 			hex1 = new Hex(this.numberString);
+			hex1IsNotNull = true;
 		} else {
 			hex2 = new Hex(this.numberString);
 		}
@@ -109,5 +129,27 @@ public class Calculator extends JPanel {
 		this.actionType = buttonType;
 	}
 	
+	public BUTTON_TYPE getAction() {
+		return this.actionType;
+	}
+
+	public boolean isHex1IsNotNull() {
+		return this.hex1IsNotNull;
+	}
+	
+	public void setPaintResolute(boolean paintResolute) {
+		this.paintResolute = paintResolute;
+	}
+
+
+	public BUTTON_TYPE getPreviousButton() {
+		return this.previousButton;
+	}
+
+	
+	public void setPreviousButton(BUTTON_TYPE previousButton) {
+		this.previousButton = previousButton;
+	}
+
 }
 

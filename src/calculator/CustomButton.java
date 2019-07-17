@@ -3,7 +3,6 @@ package calculator;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.JButton;
 
 public class CustomButton extends JButton {
@@ -19,6 +18,7 @@ public class CustomButton extends JButton {
 		power,
 		root,
 		equals,
+		number,
 		clear
 	}
 	
@@ -27,8 +27,11 @@ public class CustomButton extends JButton {
 		setText();
 		this.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				calculator.setAction(buttonType);
 				calculator.setHexs();
+				calculator.setPreviousButton(calculator.getAction());
+				System.out.println(calculator.getAction());
+				calculator.setAction(buttonType);
+				calculator.setPaintResolute(true);
 				calculator.repaint();
 			}
 		});
@@ -71,10 +74,6 @@ public class CustomButton extends JButton {
 		}
 	}
 	this.setText(text);
-	}
-
-	public BUTTON_TYPE getButtonType() {
-		return this.buttonType;
 	}
 
 	public void paintComponent(Graphics g) {
