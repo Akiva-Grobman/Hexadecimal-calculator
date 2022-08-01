@@ -1,11 +1,10 @@
 package calculator;
 
 public class Main {
-
-	private final static int WIDTH = 1080, HEIGHT = 700;
 	
 	public static void main(String[] args) {
-		new Window(WIDTH,HEIGHT);
+		
+		new Window(Definitions.WIDTH, Definitions.HEIGHT);
 	}
 
 }
