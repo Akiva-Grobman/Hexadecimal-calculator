@@ -2,8 +2,6 @@ package calculator;
 
 import java.awt.Color;
 import java.awt.GridLayout;
-import java.util.List;
-
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
@@ -14,21 +12,10 @@ public class ButtonsPanel extends JPanel{
 	public ButtonsPanel(Calculator calculator) {
 		this.calculator = calculator;
 
-		this.setLayout(new GridLayout(6,6));
+		this.setLayout(new GridLayout(6,4));
 
-		for (Object entry : Definitions.buttonType) {
-
-			if (entry instanceof String)
-				this.add(createButton((String) entry));
-			
-			else if (entry instanceof List) {
-
-				while (!((List<?>) entry).isEmpty()) {
-					String value = (String) ((List<?>) entry).get(0);
-					((List<?>) entry).remove(0);
-					this.add(createButton(value));
-				}		
-			}				
+		for (String entry : Definitions.buttonsPanelOrder) {
+			this.add(createButton(entry));					
 		}
 
 	}
@@ -37,8 +24,11 @@ public class ButtonsPanel extends JPanel{
 
 		JButton button = new JButton();
 
-		button.setBackground(Color.LIGHT_GRAY);
-		button.setOpaque(false);
+		if (buttonValue.equals("AC")) 
+			button.setBackground(Color.ORANGE);
+		else 
+			button.setBackground(Color.LIGHT_GRAY);
+
 		button.setText(buttonValue);
 
 		button.addActionListener( e -> {
@@ -50,7 +40,6 @@ public class ButtonsPanel extends JPanel{
 				return;
 			}
 		
-
 			if(value.equals("AC")) {
 				calculator.clearEquation();
 				return;

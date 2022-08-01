@@ -5,8 +5,6 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.util.Arrays;
 import java.util.List;
-import java.util.function.Function;
-import java.util.stream.Collectors;
 
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
@@ -52,7 +50,7 @@ public class Calculator extends JPanel {
 
     public String calculate() {
 
-		equation = equation.substring(0, equation.length() - 1); //remove "="
+		equation = equation.substring(0, equation.length() - 1);
 
 		char symbol = '+';
 
@@ -70,7 +68,7 @@ public class Calculator extends JPanel {
 		else 
 			return String.valueOf(convertHexToDec(equation));
 			
-		List<Object> dividedEquation = Arrays.asList(equation.split(String.valueOf("\\" + symbol))); // split equation to 3 parts for example :  [ABC1, +, ABC3]
+		List<String> dividedEquation = Arrays.asList(equation.split(String.valueOf("\\" + symbol)));
 
 		long d1 = convertHexToDec((String) dividedEquation.get(0));
 		long d2 = convertHexToDec((String) dividedEquation.get(1));
