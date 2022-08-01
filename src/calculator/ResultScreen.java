@@ -29,15 +29,16 @@ public class ResultScreen extends JPanel {
 		if (text.isEmpty())
 			return;
 
-		if(text.charAt(text.length() - 1) == '=') {
-			
+		if(text.charAt(text.length() - 1) == '=') {	
 			try {
 				text = "0x" + calculator.calculate();
+				calculator.setEquation("");
 			} catch(NullPointerException e) {
 				text = "Error : " + e.getMessage();
+				calculator.setEquation("");
 			}
-			g.drawString(text, this.getWidth() - (text.length() * 20), 90);
+			g.drawString(text, this.getWidth() - (text.length() * 15), 90);
 		}else 
-			g.drawString(text, this.getWidth() - (text.length() * 20), 90);
+			g.drawString(text, this.getWidth() - (text.length() * 15), 90);
 	}
 }

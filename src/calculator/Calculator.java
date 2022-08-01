@@ -3,7 +3,11 @@ package calculator;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Graphics;
+import java.util.Arrays;
+import java.util.List;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
@@ -38,15 +42,64 @@ public class Calculator extends JPanel {
 		resultScreen.repaint();
 	}
 
+	public void setEquation(String equation) {
+		this.equation = equation;
+	}
+
 	public String getEquation() {
 		return equation;
 	}
 
     public String calculate() {
 
-		//convert to dec, calculate and turn back to hex.
-		// switch by symbol
-        return null;
+		equation = equation.substring(0, equation.length() - 1); //remove "="
+
+		char symbol = '+';
+
+			if( equation.contains("+")) symbol = '+';
+		else 
+			if( equation.contains("-")) symbol = '-';
+		else 
+			if( equation.contains("*")) symbol = '*';
+		else 
+			if( equation.contains("/")) symbol = '/';
+		else 
+			if( equation.contains("√")) symbol = '√';
+		else 
+			if( equation.contains("^")) symbol = '^';
+		else 
+			return String.valueOf(convertHexToDec(equation));
+			
+		List<Object> dividedEquation = Arrays.asList(equation.split(String.valueOf("\\" + symbol))); // split equation to 3 parts for example :  [ABC1, +, ABC3]
+
+		long d1 = convertHexToDec((String) dividedEquation.get(0));
+		long d2 = convertHexToDec((String) dividedEquation.get(1));
+
+		long solution = 0;
+
+		switch (symbol) {
+			case '+':
+				solution = add(d1, d2);
+			break;
+			case '-':
+				solution = subtract(d1, d2);
+			break;
+			case '/':
+				solution = divide(d1, d2);
+			break;
+			case '^':
+				solution = power(d1, d2);
+			break;
+			case '*':
+				solution = multiply(d1, d2);
+			break;
+			case '√':
+				solution = root(d1, d2);
+			break;
+		}
+
+		equation = convertDecToHex(solution);
+        return equation;
     }
 
 	public long multiply(long d1, long d2) {
@@ -71,6 +124,14 @@ public class Calculator extends JPanel {
 
 	public long root(long d1, long d2) {
 		return(int) Math.sqrt(d1);
+	}
+
+	private int convertHexToDec(String hex) {
+		return Integer.parseInt(hex, Definitions.HEXADECIMAL);
+	}
+
+	private String convertDecToHex(long dec) {
+		return Long.toHexString(dec);
 	}
 
 }

@@ -2,9 +2,7 @@ package calculator;
 
 import java.awt.Color;
 import java.awt.GridLayout;
-import java.awt.Insets;
 import java.util.List;
-import java.util.Map;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -43,20 +41,19 @@ public class ButtonsPanel extends JPanel{
 		button.setOpaque(false);
 		button.setText(buttonValue);
 
-		// TODO: for clean and other symbols make unique method 
-
 		button.addActionListener( e -> {
 
 			String value = button.getText();
 
+			if(calculator.getEquation().contains(Definitions.stringOfSymbols) && value.contains(Definitions.stringOfSymbols)) {
+				new ToastMessage(this, "Can not use multiple symbols");
+				return;
+			}
+		
+
 			if(value.equals("AC")) {
 				calculator.clearEquation();
 				return;
-			}
-
-			
-			switch(value.charAt(0)) {
-
 			}
 
 			calculator.updateEquation(button.getText());
