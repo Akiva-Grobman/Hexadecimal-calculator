@@ -2,8 +2,8 @@
 
 Hexadecimal-calculator
 ----
-![k300](images/background.png)
 
-#ForGoodMemories
+<img alt="k300" src="images/background.png" width="600">
 
+#ForGoodTimes
 </div>
