@@ -2,25 +2,24 @@
 
 ## Hexadecimal-calculator 
 
-> Hexadecimal-calculator is a small project we made on our first year 
-> as a computer science students
---------
+***Hexadecimal-calculator is a small project we made on our first year 
+as a computer science students***
 
-<img alt="k300" src="images/icon.png" width="500">
+ ## ***participants***
+
 </div>
-
-> ## ***participants***
-> - @Akiva-Grobman
-> - @mikelfried
-> - @jonathanerlichman
-> - @yechielb2000
-
 
 <div align="center">
-
-### The Calculator
-
-<img alt="calculator" src="https://user-images.githubusercontent.com/51932344/182250765-1dd57b53-211e-4d76-9c59-b151de70e6fa.png" width="200">
-
+    <img alt="Akiva Grobman" src="https://images.weserv.nl/?url=https://avatars.githubusercontent.com/u/44336769?v=4/u/96751677?s=300&v=4/u/65769327?>v=4&h=100&w=100&fit=cover&mask=circle&maxage=7d"/>
+    <img alt="Michael Fried" src="https://images.weserv.nl/?url=https://avatars.githubusercontent.com/u/18397474?v=4/u/44336769?v=4/u/96751677?s=300&v=4/u/65769327?>v=4&h=100&w=100&fit=cover&mask=circle&maxage=7d"/>
+    <img alt="Yechiel Babani" src="https://images.weserv.nl/?url=https://avatars.githubusercontent.com/u/51932344?v=4/u/96751677?s=300&v=4/u/65769327?>v=4&h=100&w=100&fit=cover&mask=circle&maxage=7d"/>
+    <img alt="Jonathan Erlichman" src="https://images.weserv.nl/?url=https://avatars.githubusercontent.com/u/52756322?v=4/u/96751677?s=300&v=4/u/65769327?>v=4&h=100&w=100&fit=cover&mask=circle&maxage=7d"/>
+    
 </div>
 
+---------
+
+<br>
+<br>
+
+`#ForGoodTimes` `#ImBored` `#DoNotDelete`
