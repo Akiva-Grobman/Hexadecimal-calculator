@@ -16,10 +16,3 @@ as a computer science students***
     <img alt="Jonathan Erlichman" src="https://images.weserv.nl/?url=https://avatars.githubusercontent.com/u/52756322?v=4/u/96751677?s=300&v=4/u/65769327?>v=4&h=100&w=100&fit=cover&mask=circle&maxage=7d"/>
     
 </div>
-
----------
-
-<br>
-<br>
-
-`#ForGoodTimes` `#ImBored` `#DoNotDelete`
